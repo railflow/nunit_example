@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="0" runstate="Runnable" testcasecount="4" result="Passed" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.12.0.0" clr-version="4.0.30319.42000" start-time="2021-11-18 15:02:04Z" end-time="2021-11-18 15:02:05Z" duration="0.743125">
+	<command-line><![CDATA[C:\Users\vaheh\.nuget\packages\nunit.consolerunner\3.12.0\tools\nunit3-console.exe  "D:\Desktop\upwork\_clients\ali-raza\_projects\1-nunit-markers\railflow-nunit\src\Railflow.NUnit\Railflow.NUnit.TestRail.Reporter.Samples\bin\Debug\net472\Railflow.NUnit.TestRail.Reporter.Samples.dll"]]></command-line>
+	<test-suite type="Assembly" id="1-1006" name="Railflow.NUnit.TestRail.Reporter.Samples.dll" fullname="D:\Desktop\upwork\_clients\ali-raza\_projects\1-nunit-markers\railflow-nunit\src\Railflow.NUnit\Railflow.NUnit.TestRail.Reporter.Samples\bin\Debug\net472\Railflow.NUnit.TestRail.Reporter.Samples.dll" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-11-18T15:02:05.5222021Z" end-time="2021-11-18T15:02:05.5567455Z" duration="0.034983" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+		<environment framework-version="3.13.2.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.19042.0" platform="Win32NT" cwd="D:\Desktop\upwork\_clients\ali-raza\_projects\1-nunit-markers\railflow-nunit\src\Railflow.NUnit\Railflow.NUnit.TestRail.Reporter.Samples\bin\Debug\net472" machine-name="DESKTOP-NHU39OC" user="vaheh" user-domain="DESKTOP-NHU39OC" culture="en-US" uiculture="en-US" os-architecture="x64" />
+		<settings>
+			<setting name="DisposeRunners" value="True" />
+			<setting name="WorkDirectory" value="D:\Desktop\upwork\_clients\ali-raza\_projects\1-nunit-markers\railflow-nunit\src\Railflow.NUnit\Railflow.NUnit.TestRail.Reporter.Samples\bin\Debug\net472" />
+			<setting name="ImageRuntimeVersion" value="4.0.30319" />
+			<setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.7.2" />
+			<setting name="ImageRequiresX86" value="False" />
+			<setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+			<setting name="TargetRuntimeFramework" value="net-4.0" />
+			<setting name="NumberOfTestWorkers" value="4" />
+		</settings>
+		<properties>
+			<property name="_PID" value="9132" />
+			<property name="_APPDOMAIN" value="domain-" />
+		</properties>
+		<test-suite type="TestSuite" id="1-1007" name="Railflow" fullname="Railflow" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-11-18T15:02:05.5373308Z" end-time="2021-11-18T15:02:05.5567455Z" duration="0.020399" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+			<test-suite type="TestSuite" id="1-1008" name="NUnit" fullname="Railflow.NUnit" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-11-18T15:02:05.5373308Z" end-time="2021-11-18T15:02:05.5567455Z" duration="0.020089" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+				<test-suite type="TestSuite" id="1-1009" name="TestRail" fullname="Railflow.NUnit.TestRail" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-11-18T15:02:05.5373308Z" end-time="2021-11-18T15:02:05.5567455Z" duration="0.020074" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+					<test-suite type="TestSuite" id="1-1010" name="Reporter" fullname="Railflow.NUnit.TestRail.Reporter" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-11-18T15:02:05.5373308Z" end-time="2021-11-18T15:02:05.5567455Z" duration="0.020063" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+						<test-suite type="TestSuite" id="1-1011" name="Samples" fullname="Railflow.NUnit.TestRail.Reporter.Samples" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-11-18T15:02:05.5373308Z" end-time="2021-11-18T15:02:05.5567455Z" duration="0.020050" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+							<test-suite type="TestFixture" id="1-1000" name="SampleTests" fullname="Railflow.NUnit.TestRail.Reporter.Samples.SampleTests" classname="Railflow.NUnit.TestRail.Reporter.Samples.SampleTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2021-11-18T15:02:05.5373308Z" end-time="2021-11-18T15:02:05.5567455Z" duration="0.017885" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+								<properties>
+									<property name="railflow-title" value="class-title" />
+									<property name="railflow-case-fields" value="class-case-field-1 class-case-field-2" />
+								</properties>
+								<test-case id="1-1001" name="Test1" fullname="Railflow.NUnit.TestRail.Reporter.Samples.SampleTests.Test1" methodname="Test1" classname="Railflow.NUnit.TestRail.Reporter.Samples.SampleTests" runstate="Runnable" seed="568794300" result="Passed" start-time="2021-11-18T15:02:05.5423533Z" end-time="2021-11-18T15:02:05.5522214Z" duration="0.007673" asserts="0">
+									<properties>
+										<property name="railflow-title" value="func-title" />
+										<property name="railflow-case-fields" value="class-case-field-1 class-case-field-2" />
+										<property name="railflow-test-rail-ids" value="func-test-rail-id-1 func-test-rail-id-2" />
+										<property name="railflow-case-priority" value="func-case-priority" />
+									</properties>
+								</test-case>
+								<test-case id="1-1003" name="Test2" fullname="Railflow.NUnit.TestRail.Reporter.Samples.SampleTests.Test2" methodname="Test2" classname="Railflow.NUnit.TestRail.Reporter.Samples.SampleTests" runstate="Runnable" seed="1577513829" result="Passed" start-time="2021-11-18T15:02:05.5567455Z" end-time="2021-11-18T15:02:05.5567455Z" duration="0.000130" asserts="0">
+									<properties>
+										<property name="railflow-title" value="class-title" />
+										<property name="railflow-case-fields" value="class-case-field-1 class-case-field-2" />
+										<property name="railflow-jira-ids" value="func-jira-id-1 func-jira-id-2" />
+									</properties>
+								</test-case>
+								<test-case id="1-1004" name="Test3" fullname="Railflow.NUnit.TestRail.Reporter.Samples.SampleTests.Test3" methodname="Test3" classname="Railflow.NUnit.TestRail.Reporter.Samples.SampleTests" runstate="Runnable" seed="1028390797" result="Passed" start-time="2021-11-18T15:02:05.5567455Z" end-time="2021-11-18T15:02:05.5567455Z" duration="0.000094" asserts="0">
+									<properties>
+										<property name="railflow-title" value="class-title" />
+										<property name="railflow-case-fields" value="class-case-field-1 class-case-field-2" />
+									</properties>
+								</test-case>
+								<test-case id="1-1005" name="Test4" fullname="Railflow.NUnit.TestRail.Reporter.Samples.SampleTests.Test4" methodname="Test4" classname="Railflow.NUnit.TestRail.Reporter.Samples.SampleTests" runstate="Runnable" seed="1658024418" result="Passed" start-time="2021-11-18T15:02:05.5567455Z" end-time="2021-11-18T15:02:05.5567455Z" duration="0.000097" asserts="0">
+									<properties>
+										<property name="railflow-title" value="class-title" />
+										<property name="railflow-case-fields" value="class-case-field-1 class-case-field-2" />
+									</properties>
+								</test-case>
+							</test-suite>
+						</test-suite>
+					</test-suite>
+				</test-suite>
+			</test-suite>
+		</test-suite>
+	</test-suite>
+</test-run>
