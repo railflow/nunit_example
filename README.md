@@ -1,6 +1,6 @@
 # Railflow.NUnit.TestRail.Reporter Examples
 
-Usage examples of [Railflow.NUnit.TestRail.Reporter](https://www.nuget.org/packages/Railflow.NUnit.TestRail.Reporter/) package for integration with TestRail.
+Examples on how to use [Railflow.NUnit.TestRail.Reporter](https://www.nuget.org/packages/Railflow.NUnit.TestRail.Reporter/) package for TestRail integration.
 
 Installing (NuGet)
 ============
