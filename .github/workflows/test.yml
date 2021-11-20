@@ -5,7 +5,7 @@ on:
 jobs:
     test:
       env:
-       PROJECT_DIR: src/Railflow.NUnit.TestRail.Reporter.Example/Example/
+       PROJECT_DIR: src/Railflow.NUnit.TestRail.Reporter.Example/Example
       
       runs-on: windows-latest
       
