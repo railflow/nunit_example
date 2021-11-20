@@ -1,19 +1,20 @@
-name: Run tests and upload results
+name: Run example tests
 on:
   workflow_dispatch:
 
 jobs:
     test:
+      name: Run example tests and upload results
       env:
        PROJECT_DIR: src/Railflow.NUnit.TestRail.Reporter.Example/Example
       
       runs-on: windows-latest
       
       steps:
-
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
       
-      - name: Build, restore packages and run tests
+      - name: Restore packages, build and run tests
         run: dotnet test ${{env.PROJECT_DIR}}/Example.csproj -- NUnit.TestOutputXml=../../../TestResults
       
       - name: Upload test results
