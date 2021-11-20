@@ -20,4 +20,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
          name: Test results
-         path: ${{env.PROJECT_DIR}}/TestResults/TestResult.xml
+         path: ${{env.PROJECT_DIR}}/TestResults/Example.xml
