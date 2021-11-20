@@ -6,15 +6,23 @@ jobs:
     test:
       env:
        PROJECT_DIR: src/Railflow.NUnit.TestRail.Reporter.Example/Example/
-       PROJECT_FILE: ${{env.PROJECT_DIR}}Example.csproj
-       TEST_FILE: ${{env.PROJECT_DIR}}/TestResults/TestResult.xml
       
       runs-on: windows-latest
-    
+      
       steps:
+      - name: Set env variable
+        run: |
+         echo "PROJECT_FILE=$PROJECT_DIR/Example.csproj" >> $GITHUB_ENV
+      
+      - name: Set env variable
+        run: |
+         echo "TEST_FILE=$PROJECT_DIR//TestResults/TestResult.xml" >> $GITHUB_ENV
+
       - uses: actions/checkout@v2
-      - name: Run tests
+      
+      - name: Build, restore packages and run tests
         run: dotnet test ${{env.PROJECT_DIR}}Example.csproj
+      
       - name: Upload test results
         uses: actions/upload-artifact@v2
         with:
