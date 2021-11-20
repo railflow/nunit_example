@@ -4,16 +4,18 @@ on:
 
 jobs:
     test:
+      env:
+       PROJECT_DIR: src/Railflow.NUnit.TestRail.Reporter.Example/Example/
+       PROJECT_FILE: ${{env.PROJECT_DIR}}Example.csproj
+       TEST_FILE: ${{env.PROJECT_DIR}}/TestResults/TestResult.xml
+      
       runs-on: windows-latest
     
       steps:
       - uses: actions/checkout@v2
       - name: Run tests
-        run: dotnet test src/Railflow.NUnit.TestRail.Reporter.Example/Example/Example.csproj
+        run: dotnet test ${{env.PROJECT_DIR}}Example.csproj
       - name: Upload test results
         uses: actions/upload-artifact@v2
         with:
-         # name: Test results
-         path: TestResults.xml
-         # Use always() to always run this step to publish test results when there are test failures
-         # if: ${{ always() }}
+         path: ${{TEST_FILE}}
