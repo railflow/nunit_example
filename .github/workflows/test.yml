@@ -12,11 +12,11 @@ jobs:
       steps:
       - name: Set env variable
         run: |
-         echo "PROJECT_FILE=$PROJECT_DIR/Example.csproj" >> $GITHUB_ENV
+         echo "PROJECT_FILE=${{env.$PROJECT_DIR}}/Example.csproj" >> $GITHUB_ENV
       
       - name: Set env variable
         run: |
-         echo "TEST_FILE=$PROJECT_DIR//TestResults/TestResult.xml" >> $GITHUB_ENV
+         echo "TEST_FILE=${{env.PROJECT_DIR}}/TestResults/TestResult.xml" >> $GITHUB_ENV
 
       - uses: actions/checkout@v2
       
