@@ -12,7 +12,7 @@ jobs:
       steps:
       - name: Set env variable
         run: |
-         echo "PROJECT_FILE=${{env.$PROJECT_DIR}}/Example.csproj" >> $GITHUB_ENV
+         echo "PROJECT_FILE=${{env.PROJECT_DIR}}/Example.csproj" >> $GITHUB_ENV
       
       - name: Set env variable
         run: |
