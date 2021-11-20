@@ -5,16 +5,17 @@ VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example", "Example\Example.csproj", "{C8BF5D93-B7E0-4427-9ECF-0DAB678BF03B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{5A039335-CD06-49BE-8F28-76D9B78F78A1}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\.github\workflows\test.yml = ..\..\.github\workflows\test.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1ECFAF34-BE2C-4376-A0C1-3D3AA2AAA733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1ECFAF34-BE2C-4376-A0C1-3D3AA2AAA733}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1ECFAF34-BE2C-4376-A0C1-3D3AA2AAA733}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1ECFAF34-BE2C-4376-A0C1-3D3AA2AAA733}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C8BF5D93-B7E0-4427-9ECF-0DAB678BF03B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C8BF5D93-B7E0-4427-9ECF-0DAB678BF03B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8BF5D93-B7E0-4427-9ECF-0DAB678BF03B}.Release|Any CPU.ActiveCfg = Release|Any CPU

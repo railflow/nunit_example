@@ -1,0 +1,16 @@
+name: Run tests and upload results
+on:
+  workflow_dispatch:
+
+jobs:
+    test:
+      runs-on: windows-latest
+    
+      steps:
+      - name: Run tests
+        run: dotnet test src/Railflow.NUnit.TestRail.Reporter.Example/Example/Example.csproj
+            # PROJECT_FILE_PATH: src/Railflow.NUnit/Railflow.NUnit.TestRail.Reporter/Railflow.NUnit.TestRail.Reporter.csproj
+            # NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+
+            # NOTE: Do not use PACKAGE_NAME, VERSION_STATIC arguments. They are ignored (known bug)
+            # NOTE: To release new version, increment <version> in csproj
