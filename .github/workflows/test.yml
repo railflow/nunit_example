@@ -7,6 +7,7 @@ jobs:
       runs-on: windows-latest
     
       steps:
+      - uses: actions/checkout@v2
       - name: Run tests
         run: dotnet test src/Railflow.NUnit.TestRail.Reporter.Example/Example/Example.csproj
             # PROJECT_FILE_PATH: src/Railflow.NUnit/Railflow.NUnit.TestRail.Reporter/Railflow.NUnit.TestRail.Reporter.csproj
