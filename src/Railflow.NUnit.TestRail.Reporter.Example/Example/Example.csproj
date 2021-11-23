@@ -12,7 +12,8 @@
     <PackageReference Include="NUnit3TestAdapter" Version="4.1.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="3.0.117" />
-    <PackageReference Include="Railflow.NUnit.TestRail.Reporter" Version="1.0.1" />
+    <PackageReference Include="Railflow.NUnit.TestRail.Reporter" Version="1.0.6" />
+    <PackageReference Include="WebDriverManager" Version="2.12.2" />
   </ItemGroup>
 
 </Project>

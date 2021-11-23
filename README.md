@@ -2,6 +2,8 @@
 
 Examples on how to use [Railflow.NUnit.TestRail.Reporter](https://www.nuget.org/packages/Railflow.NUnit.TestRail.Reporter/) package with NUnit tests for TestRail integration.
 
+
+
 Installing (NuGet)
 ============
 
@@ -11,12 +13,16 @@ Use this command to add the package to your test project.
 Install-Package Railflow.NUnit.TestRail.Reporter
 ```
 
-Writing test
+
+
+Writing tests
 =============
+
+## 1) Using RailflowAttribute
 
 The addin provides custom **RailflowAttribute** which can be applied to test methods/classes to mark them with TestRail metadata. See [railflow-nunit](https://github.com/railflow/railflow-nunit/blob/master/README.md) for more info.
 
-Here is an example test with comments explaining attributes propagation logic:
+Here is an example showcasing markers propagation logic:
 
 ```c#
     /// <summary>
@@ -95,16 +101,103 @@ Here is an example test with comments explaining attributes propagation logic:
         }
 ```
 
+
+
+## 2) Using Railflow class
+
+Here is an example on how to take screenshots and associate with tests:
+
+```c#
+public class RailflowScreenshotTests
+{
+    private ChromeDriver driver;
+    
+    [OneTimeSetup]
+    public void OneTimeSetup()
+    {
+        new DriverManager().SetUpDriver(new ChromeConfig(), "MatchingBrowser");
+    }
+    
+    [SetUp]
+    public void SetUp()
+    {
+        var options = new ChromeOptions();
+        options.AddArguments("--headless");
+
+        driver = new ChromeDriver(options)
+        {
+            Url = "https://duckduckgo.com"
+        };
+
+        Thread.Sleep(2000);
+    }
+
+    [Test]
+    public void PositiveTest1()
+    {
+        // Can take multiple screenshot for one test
+        Railflow.TakeScreenshot(driver);
+        Railflow.TakeScreenshot(driver);
+        Railflow.TakeScreenshot(driver);
+    }
+
+    [Test]
+    public void PositiveTest2()
+    {
+        var screenshot = driver.GetScreenshot();
+		
+        // Can add existing screenshot
+        Railflow.AddScreenshot(screenshot);
+    }
+
+    [Test]
+    public void PositiveTest3()
+    {
+        var bytes = driver.GetScreenshot().AsByteArray;
+
+        // Can add existing screenshot from bytes array
+        Railflow.AddScreenshot(bytes);
+    }
+
+    [Test]
+    public void PositiveTest4()
+    {
+        var stream = new MemoryStream(driver.GetScreenshot().AsByteArray);
+
+        // Can add existing screenshot from stream
+        Railflow.AddScreenshot(stream);
+    }
+
+    [TearDown]
+    public void TearDown()
+    {
+        driver.Quit();
+    }
+}
+```
+
+
+
 Running tests
 ============
 
-Use [NUnit.ConsoleRunner](https://www.nuget.org/packages/NUnit.ConsoleRunner/) to run NUnit tests and generate output. NOTE: Visual Studio adapter doesn't generate NUnit output.
+Use [NUnit.ConsoleRunner](https://www.nuget.org/packages/NUnit.ConsoleRunner/) or [dotnet CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test) to run your NUnit tests and generate output XML.
+
+NOTE: Visual Studio TestAdapter doesn't generate NUnit output.
 
 E.g.
 
 ```powershell
 nunit3-console.exe /myTestProject/bin/debug/myTestProject.dll
 ```
+
+OR
+
+```powershell
+dotnet test MyTestProject.csproj
+```
+
+
 
 XML output
 ===========
