@@ -13,166 +13,141 @@ Use this command to add the package to your test project.
 Install-Package Railflow.NUnit.TestRail.Reporter
 ```
 
+Also recommended to add [WebDriverManager](https://www.nuget.org/packages/WebDriverManager/) package for automatic Selenium driver resolution (is must have for CI)
+
+```powershell
+Install-Package WebDriverManager
+```
+
 
 
 Writing tests
 =============
 
+
+
 ## 1) Using RailflowAttribute
 
-The addin provides custom **RailflowAttribute** which can be applied to test methods/classes to mark them with TestRail metadata. See [railflow-nunit](https://github.com/railflow/railflow-nunit/blob/master/README.md) for more info.
+Apply custom **RailflowAttribute** attribute to test methods/classes to mark them with TestRail metadata. See [railflow-nunit](https://github.com/railflow/railflow-nunit/blob/master/README.md) for more info.
 
 Here is an example showcasing markers propagation logic:
 
 ```c#
-    /// <summary>
-    /// NOTE: 'JiraIds' isn't class-level marker. So will be ignored
-    /// <properties>
-    ///     <property name = "railflow-title" value="class-title" />
-    ///     <property name = "railflow-case-fields" value="class-case-field-1 class-case-field-2" />
-    /// </properties>
-    /// </summary>
-    [Railflow(
-        Title = "class-title",
-        JiraIds = new[] { "class-jira-id-1", "class-jira-id-2" },
-        CaseFields = new[] { "class-case-field-1", "class-case-field-2" })]
-    public class ExampleTests
-    {
-        [SetUp]
-        public void Setup()
-        {
-        }
+/// <summary>
+/// NOTE: 'JiraIds' isn't class-level marker. So will be ignored
+/// <properties>
+///     <property name = "railflow-title" value="class-title" />
+///     <property name = "railflow-case-fields" value="class-case-field-1 class-case-field-2" />
+/// </properties>
+/// </summary>
+[Railflow(
+	Title = "class-title",
+	JiraIds = new[] { "class-jira-id-1", "class-jira-id-2" },
+	CaseFields = new[] { "class-case-field-1", "class-case-field-2" })]
+public class RailflowAttributeExample
+{
+	[SetUp]
+	public void Setup()
+	{
+	}
 
-        /// <summary>
-        /// Markers:
-        /// <properties>
-        ///     <property name = "railflow-title" value="func-title" />
-        ///     <property name = "railflow-case-fields" value="class-case-field-1 class-case-field-2" /> (inherited from class-level)
-        ///     <property name = "railflow-test-rail-ids" value="func-test-rail-id-1 func-test-rail-id-2" />
-        ///     <property name = "railflow-case-priority" value="func-case-priority" />
-        /// </properties>
-        /// </summary>
-        [Railflow(
-            Title = "func-title",
-            CasePriority = "func-case-priority",
-            TestRailIds = new[] { "func-test-rail-id-1", "func-test-rail-id-2" })]
-        [Test]
-        public void Test1()
-        {
-        }
+	/// <summary>
+	/// Markers:
+	/// <properties>
+	///     <property name="railflow-title" value="func-title" />
+	///     <property name="railflow-case-fields" value="class-case-field-1 class-case-field-2" />
+	///     <property name="railflow-case-priority" value="func-case-priority" />
+	///     <property name="railflow-test-rail-ids" value="func-test-rail-id-1 func-test-rail-id-2" />
+	///     <property name="railflow-jira-ids" value="func-jira-id-1 func-jira-id-2" />
+	/// </properties>
+	/// </summary>
+	[Railflow(
+		Title = "func-title",
+		CasePriority = "func-case-priority",
+		TestRailIds = new[] { "func-test-rail-id-1", "func-test-rail-id-2" },
+		JiraIds = new[] { "func-jira-id-1", "func-jira-id-2" })]
+	[Test]
+	public void MarkerExample1()
+	{
+	}
 
-        /// <summary>
-        /// Markers:
-        /// <properties>
-        ///     <property name = "railflow-title" value="class-title" /> (inherited)
-        ///     <property name = "railflow-case-fields" value="class-case-field-1 class-case-field-2" /> (inherited)
-        ///     <property name = "railflow-jira-ids" value="func-jira-id-1 func-jira-id-2" />
-        /// </properties>
-        /// </summary>
-        [Railflow(JiraIds = new[] { "func-jira-id-1", "func-jira-id-2" })]
-        [Test]
-        public void Test2()
-        {
-        }
-
-        /// <summary>
-        /// Markers:
-        /// <properties>
-        ///     <property name = "railflow-title" value="class-title" /> (inherited)
-        ///     <property name = "railflow-case-fields" value="class-case-field-1 class-case-field-2" /> (inherited)
-        /// </properties>
-        /// </summary>
-        [Test]
-        public void Test3()
-        {
-        }
-
-        /// <summary>
-        /// Markers:
-        /// <properties>
-        ///     <property name = "railflow-title" value="class-title" /> (inherited)
-        ///     <property name = "railflow-case-fields" value="class-case-field-1 class-case-field-2" /> (inherited)
-        /// </properties>
-        /// </summary>
-        [Railflow]
-        [Test]
-        public void Test4()
-        {
-        }
+	/// <summary>
+	/// Markers:
+	/// <properties>
+	///     <property name = "railflow-title" value="class-title" />
+	///     <property name = "railflow-case-fields" value="class-case-field-1 class-case-field-2" />
+	/// </properties>
+	/// </summary>
+	[Test]
+	public void MarkerExample2()
+	{
+	}
+}
 ```
 
 
 
-## 2) Using Railflow class
+## 2) Using RailflowScreenshot class
 
 Here is an example on how to take screenshots and associate with tests:
 
 ```c#
-public class RailflowScreenshotTests
+public class RailflowScreenshotsExample
 {
-    private ChromeDriver driver;
-    
-    [OneTimeSetup]
-    public void OneTimeSetup()
-    {
-        new DriverManager().SetUpDriver(new ChromeConfig(), "MatchingBrowser");
-    }
-    
-    [SetUp]
-    public void SetUp()
-    {
-        var options = new ChromeOptions();
-        options.AddArguments("--headless");
+	private ChromeDriver driver;
 
-        driver = new ChromeDriver(options)
-        {
-            Url = "https://duckduckgo.com"
-        };
+	[OneTimeSetUp]
+	public void OneTimeSetUp()
+	{
+		// Will run driver in headless-mode (without UI)
+		var options = new ChromeOptions();
+		options.AddArguments("--headless");
 
-        Thread.Sleep(2000);
-    }
+		// Setup chrome driver matching browser on current machine
+		// NOTE: This is a must for CI tests (where browser version isn't known upfront)
+		new DriverManager().SetUpDriver(new ChromeConfig(), "MatchingBrowser");
 
-    [Test]
-    public void PositiveTest1()
-    {
-        // Can take multiple screenshot for one test
-        Railflow.TakeScreenshot(driver);
-        Railflow.TakeScreenshot(driver);
-        Railflow.TakeScreenshot(driver);
-    }
+		// Instantiate driver and navigate to specific URL
+		driver = new ChromeDriver(options)
+		{
+			Url = "https://duckduckgo.com"
+		};
 
-    [Test]
-    public void PositiveTest2()
-    {
-        var screenshot = driver.GetScreenshot();
-		
-        // Can add existing screenshot
-        Railflow.AddScreenshot(screenshot);
-    }
+		// Wait the page to load
+		Thread.Sleep(2000);
+	}
 
-    [Test]
-    public void PositiveTest3()
-    {
-        var bytes = driver.GetScreenshot().AsByteArray;
+	[Test]
+	public void ScreenshotExample1()
+	{
+		// Take multiple screenshots and associate with current test
+		RailflowScreenshot.Take(driver);
+		RailflowScreenshot.Take(driver);
+		RailflowScreenshot.Take(driver);
+	}
 
-        // Can add existing screenshot from bytes array
-        Railflow.AddScreenshot(bytes);
-    }
+	[Test]
+	public void ScreenshotExample2()
+	{
+		var screenshot = driver.GetScreenshot();
 
-    [Test]
-    public void PositiveTest4()
-    {
-        var stream = new MemoryStream(driver.GetScreenshot().AsByteArray);
+		// Associate existing screenshot with current test
+		RailflowScreenshot.AddExisting(screenshot);
+	}
 
-        // Can add existing screenshot from stream
-        Railflow.AddScreenshot(stream);
-    }
+	[TearDown]
+	public void TearDown()
+	{
+		// Take screenshot only if the last test failed
+		RailflowScreenshot.TakeIfLastTestFailed(driver);
+	}
 
-    [TearDown]
-    public void TearDown()
-    {
-        driver.Quit();
-    }
+	[OneTimeTearDown]
+	public void OneTimeTearDown()
+	{
+		// Quit and dispose
+		driver.Quit();
+	}
 }
 ```
 
@@ -202,41 +177,52 @@ dotnet test MyTestProject.csproj
 XML output
 ===========
 
-Here is the output of test (<u>non-relevant pieces are skipped</u>).
+Here is the output of tests from examples above (<u>non-relevant pieces are skipped</u>).
 
 ```xml
-<test-suite type="TestFixture">
+<test-suite type="TestSuite" name="Example">
+  <test-suite type="TestFixture" name="RailflowAttributeExample">
 	<properties>
-		<property name="railflow-title" value="class-title"/>
-		<property name="railflow-case-fields" value="class-case-field-1 class-case-field-2"/>
+	  <property name="railflow-title" value="class-title" />
+	  <property name="railflow-case-fields" value="class-case-field-1 class-case-field-2" />
 	</properties>
-	<test-case id="1-1001" name="Test1">
-		<properties>
-			<property name="railflow-title" value="func-title"/>
-			<property name="railflow-case-fields" value="class-case-field-1 class-case-field-2"/>
-			<property name="railflow-test-rail-ids" value="func-test-rail-id-1 func-test-rail-id-2"/>
-			<property name="railflow-case-priority" value="func-case-priority"/>
-		</properties>
+	<test-case name="MarkerExample1">
+	  <properties>
+		<property name="railflow-title" value="func-title" />
+		<property name="railflow-case-fields" value="class-case-field-1 class-case-field-2" />
+		<property name="railflow-case-priority" value="func-case-priority" />
+		<property name="railflow-test-rail-ids" value="func-test-rail-id-1 func-test-rail-id-2" />
+		<property name="railflow-jira-ids" value="func-jira-id-1 func-jira-id-2" />
+	  </properties>
 	</test-case>
-	<test-case id="1-1003" name="Test2">
-		<properties>
-			<property name="railflow-title" value="class-title"/>
-			<property name="railflow-case-fields" value="class-case-field-1 class-case-field-2"/>
-			<property name="railflow-jira-ids" value="func-jira-id-1 func-jira-id-2"/>
-		</properties>
+	<test-case name="MarkerExample2">
+	  <properties>
+		<property name="railflow-title" value="class-title" />
+		<property name="railflow-case-fields" value="class-case-field-1 class-case-field-2" />
+	  </properties>
 	</test-case>
-	<test-case id="1-1004" name="Test3">
-		<properties>
-			<property name="railflow-title" value="class-title"/>
-			<property name="railflow-case-fields" value="class-case-field-1 class-case-field-2"/>
-		</properties>
+  </test-suite>
+  <test-suite type="TestFixture" name="RailflowScreenshotsExample">
+	<test-case name="ScreenshotExample1">
+	  <attachments>
+		<attachment>
+		  <filePath>railflow-screenshots\test-run 2021-11-23-08-01-01\ScreenshotExample1-0.png</filePath>
+		</attachment>
+		<attachment>
+		  <filePath>railflow-screenshots\test-run 2021-11-23-08-01-01\ScreenshotExample1-1.png</filePath>
+		</attachment>
+		<attachment>
+		  <filePath>railflow-screenshots\test-run 2021-11-23-08-01-01\ScreenshotExample1-2.png</filePath>
+		</attachment>
+	  </attachments>
 	</test-case>
-	<test-case id="1-1005" name="Test4">
-		<properties>
-			<property name="railflow-title" value="class-title"/>
-			<property name="railflow-case-fields" value="class-case-field-1 class-case-field-2"/>
-		</properties>
+	<test-case name="ScreenshotExample2">
+	  <attachments>
+		<attachment>
+		  <filePath>railflow-screenshots\test-run 2021-11-23-08-01-01\ScreenshotExample2-3.png</filePath>
+		</attachment>
+	  </attachments>
 	</test-case>
+  </test-suite>
 </test-suite>
-    
 ```
