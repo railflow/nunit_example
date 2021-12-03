@@ -7,7 +7,8 @@ namespace Example
     /// NOTE: 'JiraIds' isn't class-level marker. So will be ignored
     /// <properties>
     ///     <property name = "railflow-title" value="class-title" />
-    ///     <property name = "railflow-case-fields" value="class-case-field-1 class-case-field-2" />
+    ///     <property name = "railflow-case-fields" value="class-case-field-1" />
+    ///     <property name = "railflow-case-fields" value="class-case-field-2" />
     /// </properties>
     /// </summary>
     [Railflow(
@@ -25,10 +26,13 @@ namespace Example
         /// Markers:
         /// <properties>
         ///     <property name="railflow-title" value="func-title" />
-        ///     <property name="railflow-case-fields" value="class-case-field-1 class-case-field-2" />
+        ///     <property name="railflow-case-fields" value="class-case-field-1" />
+        ///     <property name="railflow-case-fields" value="class-case-field-2" />
         ///     <property name="railflow-case-priority" value="func-case-priority" />
-        ///     <property name="railflow-test-rail-ids" value="func-test-rail-id-1 func-test-rail-id-2" />
-        ///     <property name="railflow-jira-ids" value="func-jira-id-1 func-jira-id-2" />
+        ///     <property name="railflow-test-rail-ids" value="func-test-rail-id-1" />
+        ///     <property name="railflow-test-rail-ids" value="func-test-rail-id-2" />
+        ///     <property name="railflow-jira-ids" value="func-jira-id-1" />
+        ///     <property name="railflow-jira-ids" value="func-jira-id-2" />
         /// </properties>
         /// </summary>
         [Railflow(
@@ -45,7 +49,8 @@ namespace Example
         /// Markers:
         /// <properties>
         ///     <property name = "railflow-title" value="class-title" />
-        ///     <property name = "railflow-case-fields" value="class-case-field-1 class-case-field-2" />
+        ///     <property name = "railflow-case-fields" value="class-case-field-1" />
+        ///     <property name = "railflow-case-fields" value="class-case-field-2" />
         /// </properties>
         /// </summary>
         [Test]
