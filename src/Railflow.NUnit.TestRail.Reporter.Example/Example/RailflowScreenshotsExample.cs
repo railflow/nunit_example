@@ -36,9 +36,9 @@ namespace Example
         public void ScreenshotExample1()
         {
             // Take multiple screenshots and associate with current test
-            RailflowScreenshot.Take(driver);
-            RailflowScreenshot.Take(driver);
-            RailflowScreenshot.Take(driver);
+            CurrentTest.TakeScreenshot(driver);
+            CurrentTest.TakeScreenshot(driver);
+            CurrentTest.TakeScreenshot(driver);
         }
 
         [Test]
@@ -47,14 +47,14 @@ namespace Example
             var screenshot = driver.GetScreenshot();
 
             // Associate existing screenshot with current test
-            RailflowScreenshot.AddExisting(screenshot);
+            CurrentTest.AddExistingScreenshot(screenshot);
         }
 
         [TearDown]
         public void TearDown()
         {
             // Take screenshot only if the last test failed
-            RailflowScreenshot.TakeIfLastTestFailed(driver);
+            CurrentTest.TakeScreenshotIfLastTestFailed(driver);
         }
 
         [OneTimeTearDown]
