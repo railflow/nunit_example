@@ -144,51 +144,40 @@ XML output
 Here is the output of tests from examples above (<u>non-relevant pieces are skipped</u>).
 
 ```xml
-<test-suite type="TestSuite" id="0-1008" name="Example">
-	<test-suite type="TestFixture" id="0-1000" name="RailflowAttributeExample">
+<test-suite name="Example">
+	<test-suite name="RailflowAttributeExample">
 		<properties>
 			<property name="railflow-title" value="class-title"/>
 			<property name="railflow-case-fields" value="class-case-field-1"/>
 			<property name="railflow-case-fields" value="class-case-field-2"/>
 		</properties>
-		<test-case id="0-1001" name="MarkerExample1">
+		<test-case name="MarkerExample1">
 			<properties>
 				<property name="railflow-title" value="func-title"/>
-				<property name="railflow-case-fields" value="class-case-field-1"/>
-				<property name="railflow-case-fields" value="class-case-field-2"/>
-				<property name="railflow-case-priority" value="func-case-priority"/>
 				<property name="railflow-test-rail-ids" value="1"/>
 				<property name="railflow-test-rail-ids" value="2"/>
-				<property name="railflow-jira-ids" value="func-jira-id-1"/>
-				<property name="railflow-jira-ids" value="func-jira-id-2"/>
 			</properties>
 		</test-case>
-		<test-case id="0-1003" name="MarkerExample2">
-			<properties>
-				<property name="railflow-title" value="class-title"/>
-				<property name="railflow-case-fields" value="class-case-field-1"/>
-				<property name="railflow-case-fields" value="class-case-field-2"/>
-			</properties>
-		</test-case>
+		<test-case name="MarkerExample2">
 	</test-suite>
-	<test-suite type="TestFixture" id="0-1004" name="RailflowScreenshotsExample">
-		<test-case id="0-1005" name="ScreenshotExample1">
+	<test-suite name="RailflowScreenshotsExample">
+		<test-case name="ScreenshotExample1">
 			<attachments>
 				<attachment>
-					<filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-03-11-33-14\ScreenshotExample1-0.png</filePath>
+					<filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-15-03-11-38\ScreenshotExample1-0.png</filePath>
 				</attachment>
 				<attachment>
-					<filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-03-11-33-14\ScreenshotExample1-1.png</filePath>
+					<filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-15-03-11-38\ScreenshotExample1-1.png</filePath>
 				</attachment>
 				<attachment>
-					<filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-03-11-33-14\ScreenshotExample1-2.png</filePath>
+					<filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-15-03-11-38\ScreenshotExample1-2.png</filePath>
 				</attachment>
 			</attachments>
 		</test-case>
-		<test-case id="0-1006" name="ScreenshotExample2">
+		<test-case name="ScreenshotExample2">
 			<attachments>
 				<attachment>
-					<filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-03-11-33-14\ScreenshotExample2-3.png</filePath>
+					<filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-15-03-11-38\ScreenshotExample2-3.png</filePath>
 				</attachment>
 			</attachments>
 		</test-case>
