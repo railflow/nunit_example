@@ -145,42 +145,42 @@ Here is the output of tests from examples above (<u>non-relevant pieces are skip
 
 ```xml
 <test-suite name="Example">
-	<test-suite name="RailflowAttributeExample">
-		<properties>
-			<property name="railflow-title" value="class-title"/>
-			<property name="railflow-case-fields" value="class-case-field-1"/>
-			<property name="railflow-case-fields" value="class-case-field-2"/>
-		</properties>
-		<test-case name="MarkerExample1">
-			<properties>
-				<property name="railflow-title" value="func-title"/>
-				<property name="railflow-test-rail-ids" value="1"/>
-				<property name="railflow-test-rail-ids" value="2"/>
-			</properties>
-		</test-case>
-		<test-case name="MarkerExample2">
-	</test-suite>
-	<test-suite name="RailflowScreenshotsExample">
-		<test-case name="ScreenshotExample1">
-			<attachments>
-				<attachment>
-					<filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-15-03-11-38\ScreenshotExample1-0.png</filePath>
-				</attachment>
-				<attachment>
-					<filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-15-03-11-38\ScreenshotExample1-1.png</filePath>
-				</attachment>
-				<attachment>
-					<filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-15-03-11-38\ScreenshotExample1-2.png</filePath>
-				</attachment>
-			</attachments>
-		</test-case>
-		<test-case name="ScreenshotExample2">
-			<attachments>
-				<attachment>
-					<filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-15-03-11-38\ScreenshotExample2-3.png</filePath>
-				</attachment>
-			</attachments>
-		</test-case>
-	</test-suite>
+  <test-suite name="RailflowAttributeExample">
+    <properties>
+      <property name="railflow-title" value="class-title"/>
+      <property name="railflow-case-fields" value="class-case-field-1"/>
+      <property name="railflow-case-fields" value="class-case-field-2"/>
+    </properties>
+    <test-case name="MarkerExample1">
+      <properties>
+        <property name="railflow-title" value="func-title"/>
+        <property name="railflow-test-rail-ids" value="1"/>
+        <property name="railflow-test-rail-ids" value="2"/>
+      </properties>
+    </test-case>
+    <test-case name="MarkerExample2">
+  </test-suite>
+  <test-suite name="RailflowScreenshotsExample">
+    <test-case name="ScreenshotExample1">
+      <attachments>
+        <attachment>
+          <filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-15-03-11-38\ScreenshotExample1-0.png</filePath>
+        </attachment>
+        <attachment>
+          <filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-15-03-11-38\ScreenshotExample1-1.png</filePath>
+        </attachment>
+        <attachment>
+          <filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-15-03-11-38\ScreenshotExample1-2.png</filePath>
+        </attachment>
+      </attachments>
+    </test-case>
+    <test-case name="ScreenshotExample2">
+      <attachments>
+        <attachment>
+          <filePath>D:\a\nunit_example\nunit_example\src\Railflow.NUnit.TestRail.Reporter.Example\Example\bin\Debug\net472\railflow-screenshots\test-run 2021-12-15-03-11-38\ScreenshotExample2-3.png</filePath>
+        </attachment>
+      </attachments>
+    </test-case>
+  </test-suite>
 </test-suite>
 ```
