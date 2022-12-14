@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example", "Example\Example.csproj", "{C8BF5D93-B7E0-4427-9ECF-0DAB678BF03B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{5A039335-CD06-49BE-8F28-76D9B78F78A1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{870C9D7A-7DDA-44AE-BE38-18D4F690D508}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\.github\workflows\run-example-tests.yml = ..\..\.github\workflows\run-example-tests.yml
+		.github\workflows\run-example-tests.yml = .github\workflows\run-example-tests.yml
 	EndProjectSection
 EndProject
 Global
