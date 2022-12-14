@@ -8,8 +8,15 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace Example
 {
-
-    class LoginTest
+    [Railflow(
+        Title = "Login with Railflow Attribute",
+        CasePriority = "Critical",
+        CaseType = "Railflow",
+        CaseFields = new[] { "Required text field = Railflow on class level", "estimate = 10s" },
+        ResultFields = new[] { "Custom field =  Result for Railflow on class level", "version = 2.0" },
+        SmartAssignment = new[] { "user1@company.net", "user2@company.net" }
+        )]
+    class LoginTestWithRailflowOnMethod
     {
         private static readonly String LOGIN_PAGE_URL = "https://test.railflow.io/login";
 
@@ -25,7 +32,7 @@ namespace Example
         public void SetUp()
         {
             var options = new ChromeOptions();
-            options.AddArguments("--headless");                     
+            options.AddArguments("--headless");
             driver = new ChromeDriver(options)
             {
                 Url = LOGIN_PAGE_URL
@@ -38,12 +45,20 @@ namespace Example
             Assert.AreEqual("Invoice Ninja | Free Source-Available Online Invoicing", driver.Title);
         }
 
+        [Railflow(
+            Title = "Log in application with the correct credentials",
+            CasePriority = "Low",
+            CaseType = "Automated",
+            CaseFields = new[] { "Required text field = Railflow on method level", "estimate = 20s" },
+            ResultFields = new[] { "Custom field =  Result for Railflow on method level", "version = 3.0" },
+            SmartAssignment = new[] { "	user1@yourcompany.com" }
+        )]
         [Test]
         public void LogInCorrectCredentials()
         {
             new LoginPage(this.driver).LogIn("sergey@railflow.io", "myS3crEt");
             Assert.That(this.driver.Url.EndsWith("dashboard"));
-            Assert.AreEqual("Oplavin Sergey", driver.FindElement(By.Id("myAccountButton")).Text);
+            Assert.AreEqual("John Doe", driver.FindElement(By.Id("myAccountButton")).Text);
         }
 
         [Test]
@@ -53,6 +68,15 @@ namespace Example
             loginPage.LogIn("user@railflow.io", "password");
             Assert.AreEqual(LOGIN_PAGE_URL, driver.Url);
             Assert.AreEqual("These credentials do not match our records", loginPage.getErrorArea().Text);
+        }
+
+        [Test]
+        public void LogInWithAdminCredentials()
+        {
+            LoginPage loginPage = new LoginPage(this.driver);
+            loginPage.LogIn("admin@youcompany.io", "password");
+            Assert.AreEqual(LOGIN_PAGE_URL, driver.Url);
+            Assert.AreEqual("Admin admin", driver.FindElement(By.Id("myAccountButton")).Text);
         }
 
         [TearDown]
@@ -65,7 +89,5 @@ namespace Example
                 driver.Quit();
             }
         }
-
-
     }
 }

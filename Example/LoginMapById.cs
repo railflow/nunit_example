@@ -38,7 +38,7 @@ namespace Example
         {
             new LoginPage(this.driver).LogIn("sergey@railflow.io", "myS3crEt");
             Assert.That(this.driver.Url.EndsWith("dashboard"));
-            Assert.AreEqual("Oplavin Sergey", driver.FindElement(By.Id("myAccountButton")).Text);
+            Assert.AreEqual("Sergey Oplavin", driver.FindElement(By.Id("myAccountButton")).Text);
         }
 
         [TearDown]
@@ -46,6 +46,7 @@ namespace Example
         {
             if (driver != null)
             {
+                // take screenshot for failing tests
                 CurrentTest.TakeScreenshotIfLastTestFailed((WebDriver)driver);
                 driver.Quit();
             }

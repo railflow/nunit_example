@@ -8,8 +8,15 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace Example
 {
-
-    class LoginTest
+    [Railflow(
+        Title = "Login with Railflow Attribute",
+        CasePriority = "Critical",
+        CaseType = "Railflow",
+        CaseFields = new[] { "Required text field = Railflow on class level", "estimate = 10s" },
+        ResultFields = new[] { "Custom field =  Result for Railflow on class level", "version = 2.0" },
+        SmartAssignment = new[] { "user1@company.net", "user2@company.net" }
+        )]
+    class LoginWithRailflowOnClass
     {
         private static readonly String LOGIN_PAGE_URL = "https://test.railflow.io/login";
 
@@ -25,7 +32,7 @@ namespace Example
         public void SetUp()
         {
             var options = new ChromeOptions();
-            options.AddArguments("--headless");                     
+            options.AddArguments("--headless");
             driver = new ChromeDriver(options)
             {
                 Url = LOGIN_PAGE_URL
@@ -43,7 +50,7 @@ namespace Example
         {
             new LoginPage(this.driver).LogIn("sergey@railflow.io", "myS3crEt");
             Assert.That(this.driver.Url.EndsWith("dashboard"));
-            Assert.AreEqual("Oplavin Sergey", driver.FindElement(By.Id("myAccountButton")).Text);
+            Assert.AreEqual("Sergey Oplavin", driver.FindElement(By.Id("myAccountButton")).Text);
         }
 
         [Test]
@@ -53,6 +60,15 @@ namespace Example
             loginPage.LogIn("user@railflow.io", "password");
             Assert.AreEqual(LOGIN_PAGE_URL, driver.Url);
             Assert.AreEqual("These credentials do not match our records", loginPage.getErrorArea().Text);
+        }
+
+        [Test]
+        public void LogInWithAdminCredentials()
+        {
+            LoginPage loginPage = new LoginPage(this.driver);
+            loginPage.LogIn("admin@youcompany.io", "password");
+            Assert.AreEqual(LOGIN_PAGE_URL, driver.Url);
+            Assert.AreEqual("Admin admin", driver.FindElement(By.Id("myAccountButton")).Text);
         }
 
         [TearDown]
@@ -65,7 +81,5 @@ namespace Example
                 driver.Quit();
             }
         }
-
-
     }
 }
