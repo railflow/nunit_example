@@ -9,7 +9,7 @@ Please refer to full documentation on how to integrate [NUnit](https://nunit.org
 * .NET Framework 4.5 or newer
 * NuGet
 * NUnit 3 
-* Visual Studio 2017
+* Visual Studio 2017 or newer
 
 ## Running tests
 
