@@ -24,7 +24,7 @@ nunit3-console.exe ./Example/bin/debug/net472/Example.dll
 OR
 
 ```powershell
-dotnet test ./Example.csproj --logger:nunit -- NUnit.TestOutputXml=../../../TestResults
+dotnet test ./Example.csproj --logger:nunit -- NUnit.TestOutputXml=./TestResults
 ```
 
 **NOTE:** [NunitXml.TestLogger](https://www.nuget.org/packages/NunitXml.TestLogger/) NuGet package should be installed in order to use "NUnit" XML logger with **dotnet CLI**
